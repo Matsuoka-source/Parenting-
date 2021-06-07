@@ -1,0 +1,19 @@
+<% @posts.each do |post| %>
+<!--コントローラから来た情報を変数に1つずつ格納-->
+<div>
+  <%= link_to post_path(post.id) do %>
+  <!--リンクの作成-->
+   <p>投稿タイトル: <%= post.title%></p>
+  <% end %>
+  <!--変数内のtitleを表示-->
+  <p>コメント: <%= post.body %></p>
+  <!--変数内のbodyを表示-->
+  <p>ユーザ名: <%= post.user.name %></p>
+  <!--変数内のuser_idに関連付けられているuserモデルのnameカラムを表示-->
+  <p>投稿日時:<%= post.created_at.strftime('%Y/%m/%d')%></p>
+  <!--投稿日時を表示-->
+</div>
+
+
+<% end %>
+<%= render 'post', post: @post %>

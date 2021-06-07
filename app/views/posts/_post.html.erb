@@ -1,0 +1,15 @@
+<%= form_with model: post, local: true do |f| %>
+  <div class = "post">
+    <h4>投稿タイトル</h4>
+    <%= f.text_field :title %>
+  </div>
+  <div class = "post">
+    <h4>投稿画像</h4>
+    <%= f.attachment_field :image %>
+  </div>
+  <div class = "post">
+    <h4>コメント</h4>
+    <%= f.text_field :body%>
+    <%= f.submit '投稿'%>
+  </div>
+<% end %>

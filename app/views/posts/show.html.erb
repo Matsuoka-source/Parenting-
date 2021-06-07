@@ -1,0 +1,15 @@
+<div class="post-body">
+  <%= attachment_image_tag @post, :image %>
+  <p>投稿タイトル: <%= @post.title%></p>
+  <!--変数内のtitleを表示-->
+  <p>コメント: <%= @post.body %></p>
+  <!--変数内のbodyを表示-->
+  <p>ユーザ名: <%= @post.user.name %></p>
+  <!--変数内のuser_idに関連付けられているuserモデルのnameカラムを表示-->
+  <p>投稿日時:<%= @post.created_at.strftime('%Y%m%d')%></p>
+  <!--投稿日時を表示-->
+  <% if @post.user == current_user %>
+    <!--投稿してる人とユーザーが同一人物なら削除可能-->
+    <%= link_to "削除", post_path(@post), method: :delete %>
+  <% end %>
+</div>
