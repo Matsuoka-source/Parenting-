@@ -8,4 +8,5 @@ class User < ApplicationRecord
   # 投稿との関係
   has_many :post_comments, dependent: :destroy
   #投稿へのコメントとの関係
+  has_many :favorites, dependent: :destroy
 end

@@ -2,8 +2,10 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     # 新しい投稿
-    @posts = Post.all
+    # @posts = Post.all
     # すべての投稿
+    @posts = Post.page(params[:page]).reverse_order
+    # Post.allでは1ページにすべて出てしまうので、「指定の数だけ。新しいもの順」に変更
   end
 
   def create

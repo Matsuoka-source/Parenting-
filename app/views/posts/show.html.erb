@@ -12,6 +12,21 @@
     <!--投稿してる人とユーザーが同一人物なら削除可能-->
     <%= link_to "削除", post_path(@post), method: :delete %>
   <% end %>
+  <% if @post.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_favorites_path(@post), method: :delete do %>
+       ❤<%= @post.favorites.count %>いいね
+       <!--上記を押したらいいねが外れる-->
+      <% end %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to post_favorites_path(@post), method: :post do %>
+        ♡<%= @post.favorites.count %>いいね
+        <!--上記を押したらいいねが付く-->
+      <% end %>
+    </p>
+  <% end %>
 </div>
 
 
