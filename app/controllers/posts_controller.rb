@@ -24,6 +24,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     # 主キーに対応するレコードを取り出す
+    @post_comment = PostComment.new
+    # 新しいコメント
   end
 
   def destroy
