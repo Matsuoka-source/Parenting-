@@ -1,0 +1,16 @@
+# ja:
+# activerecord:
+#   models:
+#   attributes:
+#     post:
+#       title: 投稿タイトル
+#       body: コメント
+
+ja:
+activerecord:
+error:
+models:
+  post:
+    attributes:
+      title: '投稿タイトル'
+      body: 'コメント'

@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!,except: [:top]
+  # すべてのコントローラに動作する前に実行  authenticate_user!でログインができていないとログイン画面にリダイレクト  
   before_action :configure_permitted_parameters, if: :devise_controller?
   #devise利用の機能（ユーザ登録、ログイン認証など）が使われる場合、その前にconfigure_permitted_parametersが実行されます。
   def after_sign_in_path_for(resource)

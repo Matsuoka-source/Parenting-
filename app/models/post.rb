@@ -6,7 +6,9 @@ class Post < ApplicationRecord
   # お気に入り機能との関係
   attachment :image
   # 画像アップ用のメソッド追加（refileのルール）
-
+  validates :title, presence: true
+  validates :body, presence: true
+  # バリデーション　上記のカラムが入っていないと戻る
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
     #このメソッドで、引数で渡されたユーザidがFavoritesテーブル内に存在するか確認

@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   #投稿へのコメントとの関係
   has_many :favorites, dependent: :destroy
+  attachment :image
+  # refileを使用するため記述
 end

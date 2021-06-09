@@ -12,10 +12,13 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     # ユーザーと投稿を紐づけ
-    @post.save
+     if @post.save
+      redirect_to posts_path
+     else
+      @posts = Post.page(params[:page]).reverse_order
+      render :index
+     end
     # 情報を保存
-    redirect_to posts_path
-
   end
 
   def edit

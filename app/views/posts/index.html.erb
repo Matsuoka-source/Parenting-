@@ -1,13 +1,19 @@
+<h1>投稿一覧</h1>
+<% if @post.errors.any? %>
+<!--バリデーションで発生したエラーを確認し、発生しているかどうか判定-->
+  <%= @post.errors.count %>件のエラーが発生しました
+  <% @post.errors.full_messages.each do |message| %>
+  <!--一つずつエラーを出す-->
+    <%= message %>
+  <% end %>
+<% end %>
+
 <% @posts.each do |post| %>
 <!--コントローラから来た情報を変数に1つずつ格納-->
 <div>
-  <%= link_to post_path(post.id) do %>
-  <!--リンクの作成-->
-   <p>投稿タイトル: <%= post.title%></p>
-  <% end %>
-  <!--変数内のtitleを表示-->
-  <p>コメント: <%= post.body %></p>
-  <!--変数内のbodyを表示-->
+  <%= link_to "投稿タイトル: #{post.title}", post_path(post.id) %>
+  <!--リンクの作成 変数内のtitleを表示 #{}でタイトルを引っ張ってくる-->
+  <!--<p>コメント: <%#= post.body %></p> ←は変数内のbodyを表示　これはリンク先で見れるようにしておく-->
   <p>ユーザ名: <%= post.user.name %></p>
   <!--変数内のuser_idに関連付けられているuserモデルのnameカラムを表示-->
   <p>投稿日時:<%= post.created_at.strftime('%Y/%m/%d')%></p>
