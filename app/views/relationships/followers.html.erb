@@ -1,0 +1,20 @@
+<h1>フォロワー一覧</h1>
+  <% if @users.exists? %>
+    <thead>
+      <tr>
+        <th>name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user|%>
+        <th><%= user.name %></th>
+      <% end %>
+    </tbody>
+  <% else %>
+    <p>フォロワーはいません</p>
+  <% end %>
+
+  <%= link_to '戻る', :back %>

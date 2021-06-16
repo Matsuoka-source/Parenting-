@@ -23,6 +23,12 @@ class RelationshipsController < ApplicationController
     @users = user.followers
     # これでフォローされているユーザid一覧を取得
   end
+  
+  private
+    def set_user
+      @user = User.find(params[:id])
+    end  
+  
 
 
 end

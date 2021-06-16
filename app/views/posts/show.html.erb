@@ -13,38 +13,14 @@
     <!--投稿してる人とユーザーが同一人物なら削除可能-->
     <%= link_to "削除", post_path(@post), method: :delete %>
   <% end %>
-  <% if @post.favorited_by?(current_user) %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :delete do %>
-       ❤<%= @post.favorites.count %>いいね
-       <!--上記を押したらいいねが外れる-->
-      <% end %>
-    </p>
-  <% else %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :post do %>
-        ♡<%= @post.favorites.count %>いいね
-        <!--上記を押したらいいねが付く-->
-      <% end %>
-    </p>
-  <% end %>
+  <%= render 'favorites/favorite' %>
 </div>
 
 
 <div class="comments">
 <!--今までのコメント-->
 <p>コメント件数:<%= @post.post_comments.count %></p>
-<% @post.post_comments.each do |post_comment| %>
-  <%= post_comment.user.name %>
-  <!--コメントを書いたユーザの名前-->
-  <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment%>
-  <!--コメントを書いた日時-->
-  <% if post_comment.user == current_user %>
-  <div class="comment-delete">
-    <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
-  </div>
-  <% end %>
-<% end %>
+<%= render 'post_comments/post_comment' %>
 </div>
 
 
@@ -55,3 +31,5 @@
   <%= f.submit "送信する" %>
 <% end %>
 </div>
+
+<%= link_to '戻る', :back %>

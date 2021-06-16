@@ -8,13 +8,13 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %><!--ログイン済みならばif以下が、ログインしていなければelse以下が表示される-->
           <li>
-            <%= link_to "投稿一覧", posts_path %>
+            <%= link_to "マイページ", user_path(current_user.id) %>
           </li>
           <li>
             <%= link_to "ユーザー一覧", users_path %>
           </li>
           <li>
-            <%= link_to "マイページ", user_path(current_user.id) %>
+            <%= link_to "投稿一覧", posts_path %>
           </li>
           <li>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

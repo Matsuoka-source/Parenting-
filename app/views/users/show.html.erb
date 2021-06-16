@@ -7,6 +7,8 @@
   <% end %>
 </div>
 <%= render 'users/info', user: @user %>
+<%= link_to "フォロー一覧", user_followings_path(@user) %>
+<%= link_to "フォロワー一覧", user_followers_path(@user) %>
 
 <% @post_images.each do |post| %>
 <div>
