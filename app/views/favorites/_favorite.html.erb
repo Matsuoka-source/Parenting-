@@ -1,16 +1,8 @@
 <!--非同期にするために、いいね機能を部分テンプレート化-->
 <% if @post.favorited_by?(current_user) %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :delete do %>
-       ❤<%= @post.favorites.count %>いいね
+      <%= link_to @post.favorites.count, post_favorites_path(@post), method: :delete, remote: true %>
        <!--上記を押したらいいねが外れる-->
-      <% end %>
-    </p>
   <% else %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :post do %>
-        ♡<%= @post.favorites.count %>いいね
+      <%= link_to @post.favorites.count, post_favorites_path(@post), method: :post, remote: true %>
         <!--上記を押したらいいねが付く-->
-      <% end %>
-    </p>
   <% end %>
