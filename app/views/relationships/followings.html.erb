@@ -1,16 +1,9 @@
 <h1>フォロー一覧</h1>
   <% if @users.exists? %>
-    <thead>
-      <tr>
-        <th>name</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
     <tbody>
       <% @users.each do |user|%>
         <th><%= user.name %></th>
+        <th><%= link_to 'ユーザー詳細画面', user_path(user.id) %></th>
       <% end %>
     </tbody>
   <% else %>

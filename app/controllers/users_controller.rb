@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
-    @users = User.all
+    @users = User.page(params[:page])
+    # User.allでは1ページにすべて出てしまうので登録順に変更
     @post = Post.new
     @posts = Post.all
   end

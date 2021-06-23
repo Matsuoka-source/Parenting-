@@ -1,20 +1,22 @@
-<%= form_for @contact do |f| %>
+<div class="contactbody">
+  <%= form_for @contact do |f| %>
 
-  <div class="form-group">
-    <%= f.label :name, 'ユーザーネーム' %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :email, '返信先メールアドレス' %>
-    <%= f.text_field :email, class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :name, 'ユーザーネーム' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :contact, 'お問い合わせ内容' %>
-    <%= f.text_field :contact, class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email, '返信先メールアドレス' %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
 
-  <%= f.submit '送信'%>
+    <div class="form-group">
+      <%= f.label :contact, 'お問い合わせ内容' %>
+      <%= f.text_field :contact, class: 'form-control' %>
+    </div>
 
-<% end %>
+    <%= f.submit '送信'%>
+
+  <% end %>
+</div>

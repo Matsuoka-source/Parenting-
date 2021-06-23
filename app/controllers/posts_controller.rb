@@ -24,6 +24,14 @@ class PostsController < ApplicationController
   def edit
     @post = Post.new
     # 新規作成用
+    @post = Post.find(params[:id])
+    # postモデルのデータベースから投稿データを取得
+  end
+
+  def update
+    post = Post.find(params[:id])
+    post.update(post_params)
+    redirect_to user_path(current_user.id)
   end
 
   def show

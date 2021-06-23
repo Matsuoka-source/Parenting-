@@ -1,46 +1,24 @@
 <h1>投稿一覧</h1>
 <div class= "container">
   <div class="row">
-      <% if @post.errors.any? %>
+
+    <div class='col-md-3'>
       <!--バリデーションで発生したエラーを確認し、発生しているかどうか判定-->
-        <%= @post.errors.count %>件のエラーが発生しました
-        <% @post.errors.full_messages.each do |message| %>
-        <!--一つずつエラーを出す-->
-          <%= message %>
-        <% end %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <li><%= @post.errors.count %>件のエラーが発生しました</li>
+            <% @post.errors.full_messages.each do |message| %>
+              <!--一つずつエラーを出す-->
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
+    <%= render 'post', post: @post %>
+    </div>
 
-      <div class='col-md-3'>
-      <%= render 'post', post: @post %>
-      </div>
-
-      <div class='col-md-8 offset-md-1'>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>投稿タイトル</th>
-            <th>ユーザー名</th>
-            <th>コメント</th>
-          </tr>
-        </thead>
-        <% @posts.each do |post| %>
-        <!--コントローラから来た情報を変数に1つずつ格納-->
-        <tbody>
-          <tr>
-            <td><%= link_to " #{post.title}", post_path(post.id) %></td>
-            <!--リンクの作成 変数内のtitleを表示 #{}でタイトルを引っ張ってくる-->
-            <!--<p>コメント: <%#= post.body %></p> ←は変数内のbodyを表示　これはリンク先で見れるようにしておく-->
-            <td> <%= post.user.name %></td>
-            <!--変数内のuser_idに関連付けられているuserモデルのnameカラムを表示-->
-            <!--<td>投稿日時:<%#= post.created_at.strftime('%Y/%m/%d')%></td>-->
-            <!--投稿日時を表示-->
-            <td><%= link_to"#{post.post_comments.count} コメント", post_path(post.id)%></td>
-            <!--コメント件数を表示-->
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
-      </div>
+    <%= render 'index' %>
   </div>
 </div>
 <%= paginate @posts %>

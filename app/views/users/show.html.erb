@@ -1,28 +1,58 @@
 <h1>ユーザーページ</h1>
-<div class="profile-container">
-  <h3 class="profile-name"><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :image, :fill, 60, 60 %>
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
-</div>
-<%= render 'users/info', user: @user %>
-<%= link_to "フォロー一覧", user_followings_path(@user) %>
-<%= link_to "フォロワー一覧", user_followers_path(@user) %>
+<div class="container container-m">
+  <div class="row">
 
-<% @post_images.each do |post| %>
-<div>
-  <%= link_to post_path(post.id) do %>
-    <%= attachment_image_tag post, :image %>
-  <% end %>
-  <p>ユーザー画像: <%= attachment_image_tag post.user, :image, :fill, 60, 60 %></p>
-  <p>投稿タイトル: <%= post.title%></p>
-  <!--変数内のtitleを表示-->
-  <p>コメント: <%= post.body %></p>
-  <!--変数内のbodyを表示-->
-  <p>ユーザ名: <%= post.user.name %></p>
-  <!--変数内のuser_idに関連付けられているuserモデルのnameカラムを表示-->
+    <div class='col-md-3' style="padding: 0;">
+    <div class="profile-container">
+      <h3 class="profile-name"><%= @user.name %></h3>
+      <br/>
+      <br/>
+      <%= attachment_image_tag @user, :image, :fill, 120, 120 %>
+      <br/>
+      <br/>
+      <% if @user.id == current_user.id %>
+        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-success btn-lg" %></p>
+      <% end %>
+      <br/>
+      <br/>
+    </div>
+    <%= render 'users/info', user: @user %><br/><br/>
+    <%= link_to "フォロー一覧", user_followings_path(@user), class: "btn btn-primary btn-lg" %><br/><br/>
+    <%= link_to "フォロワー一覧", user_followers_path(@user), class: "btn btn-primary btn-lg" %><br/><br/>
+    </div>
+       <div class="row col-md-9">
+        <% @post_images.each do |post| %>
+          <div class="card col-md-9 offset-md-1" style="margin-top: 10px; padding-bottom: 10px; padding-top: 10px; margin-bottom: 10px;">
+            <%= link_to post_path(post.id), class: 'card-img-top' do %>
+              <%= attachment_image_tag post, :image, :fill, 60, 60 %>
+              <p class="card-title">
+                ユーザ名:<br/>
+                <%= post.user.name %>
+              </p>
+              <!--変数内のuser_idに関連付けられているuserモデルのnameカラムを表示-->
+              <!--<p>ユーザー画像:<br/>-->
+              <!--  <%= attachment_image_tag post.user, :image, :fill, 60, 60 %>-->
+              <!--#</p>-->
+              <p class="card-title">
+                投稿タイトル:<br/>
+                <%= post.title%>
+              </p>
+              <!--変数内のtitleを表示-->
+              <p class="card-text">
+                コメント:<br/>
+                <%= post.body %>
+              </p>
+              <p>
+                投稿日：<br/>
+                <%= post.created_at.strftime('%Y/%m/%d') %>
+              </p>
+              <!--変数内のbodyを表示-->
+              <!--<a href="../posts/show" class="btn btn-dark">詳細</a>-->
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+  </div>
 </div>
-<% end %>
 
 <%= paginate @post_images %>

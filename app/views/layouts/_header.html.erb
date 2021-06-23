@@ -1,42 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="header">
     <div class="container">
-      <a class="navbar-brand" href="/"><span>Parenting</span></a>
+      <div class="row">
+      <li class="title">
+        <%= link_to "Parenting", root_path %>
+      </li>
+      <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
+        <!--<span class="navbar-toggler-icon"></span>-->
+      <!--</button>-->
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+      <nav class="box float-right mt-5 mb-4">
+        <ul>
         <% if user_signed_in? %><!--ログイン済みならばif以下が、ログインしていなければelse以下が表示される-->
-          <li>
-            <%= link_to "マイページ", user_path(current_user.id),class: 'nav-link text-light' %>
+          <li class="wrap">
+            <!--<a href="#" class="fancy-button bg-gradient1"><span><i class="fa fa-wheelchair-alt"></i>Follow Me</span></a>-->
+            <%= link_to "マイページ", user_path(current_user), class:"button" %>
           </li>
           <li>
-            <%= link_to "ユーザー一覧", users_path,class: 'nav-link text-light' %>
+            <%= link_to "子育て世代一覧", users_path, class:"button"%>
           </li>
           <li>
-            <%= link_to "投稿一覧", posts_path,class: 'nav-link text-light' %>
+            <%= link_to "子育て情報", posts_path, class:"button"%>
           </li>
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'nav-link text-light' %>
+            <%= link_to "ログアウト", destroy_user_session_path, class:"button", method: :delete%>
           </li>
-          <%= render 'searchs/form' %>
         <% else %>
           <li>
-            <%= link_to "ホーム", root_path,class: 'nav-link text-light' %>
+            <%= link_to "ホーム", root_path, class:"button"%>
           </li>
           <li>
-            <%= link_to "概要", homes_about_path,class: 'nav-link text-light' %>
+            <%= link_to "概要", homes_about_path, class:"button"%>
           </li>
           <li>
-            <%= link_to "新規登録", new_user_registration_path,class: 'nav-link text-light' %>
+            <%= link_to "新規登録", new_user_registration_path, class:"button"%>
           </li>
           <li>
-            <%= link_to "ログイン", new_user_session_path,class: 'nav-link text-light' %>
+            <%= link_to "ログイン", new_user_session_path, class:"button"%>
           </li>
         <% end %>
         </ul>
+      </nav>
+      </div>
+      <div class="row float-right mb-3">
+        <%= render 'searchs/form' %>
       </div>
     </div>
-  </nav>
+  </div>

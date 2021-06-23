@@ -2,11 +2,18 @@
 <div class="container">
   <div class="row">
     <% @users.each do |user| %>
-      <li>
-        <%= link_to user.name, user %>
+      <li class="card col-md-9 offset-md-1" style="margin-top: 10px; padding-bottom: 10px; padding-top: 10px; margin-bottom: 10px;">
+        <%= link_to user_path(user.id) do%>
+          <br/>
+          <!--写真を枠内に入れるためにbr/を使用-->
+          <%= attachment_image_tag user, :image, class: "card-img-top "  %>
+          <p></p>
+          <!--写真と名前の間をあける-->
+          <p><%= user.name %></p>
+        <% end %>
       </li>
     <% end %>
 
-
   </div>
 </div>
+<%= paginate @users %>
