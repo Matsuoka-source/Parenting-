@@ -19,19 +19,19 @@
 
 
 .test1 {
-  background-image: image-url(test1.jpg);
+  background-image: image-url("test1.jpg");
 }
 .test2 {
-  background-image: image-url(test2.jpg);
+  background-image: image-url("test2.jpg");
 }
 .test3 {
-  background-image: image-url(test3.jpg);
+  background-image: image-url("test3.jpg");
 }
 .test4 {
-  background-image: image-url(test4.jpg);
+  background-image: image-url("test4.jpg");
 }
 .test5 {
-  background-image: image-url(test5.jpg);
+  background-image: image-url("test5.jpg");
 }
 
 #container{
@@ -204,4 +204,10 @@ footer{
     text-align: center;
 
     bottom: 0; /*下に固定*/
+}
+
+@media screen and (max-width:768px) {
+  .nav ul {
+    display: block;
+  }
 }

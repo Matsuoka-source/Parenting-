@@ -19,6 +19,9 @@
     <%= render 'users/info', user: @user %><br/><br/>
     <%= link_to "フォロー一覧", user_followings_path(@user), class: "btn btn-primary btn-lg" %><br/><br/>
     <%= link_to "フォロワー一覧", user_followers_path(@user), class: "btn btn-primary btn-lg" %><br/><br/>
+    <li>
+    <%= link_to "お問い合わせ", contacts_new_path, class: 'btn btn-primary btn-lg' %>
+    </li>
     </div>
        <div class="row col-md-9">
         <% @post_images.each do |post| %>
