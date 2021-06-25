@@ -1,8 +1,8 @@
 <!--非同期にするために、いいね機能を部分テンプレート化-->
 <% if @post.favorited_by?(current_user) %>
-      <%= link_to @post.favorites.count, post_favorites_path(@post), method: :delete, class: "fas fa-heart", remote: true %>
+      <%= link_to @post.favorites.count, post_favorites_path(@post), method: :delete, class: "fas fa-heart size", remote: true %>
        <!--上記を押したらいいねが外れる-->
   <% else %>
-      <%= link_to @post.favorites.count, post_favorites_path(@post), method: :post, class: "far fa-heart", remote: true %>
+      <%= link_to @post.favorites.count, post_favorites_path(@post), method: :post, class: "far fa-heart size", remote: true %>
         <!--上記を押したらいいねが付く-->
   <% end %>

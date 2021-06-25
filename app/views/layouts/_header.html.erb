@@ -16,26 +16,26 @@
             <%= link_to "マイページ", user_path(current_user), class:"button" %>
           </li>
           <li>
-            <%= link_to "子育て世代一覧", users_path, class:"button"%>
+            <%= link_to "子育て世代一覧", users_path, class:"button" %>
           </li>
           <li>
-            <%= link_to "子育て情報", posts_path, class:"button"%>
+            <%= link_to "子育て情報", posts_path, class:"button" %>
           </li>
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path, class:"button", method: :delete%>
+            <%= link_to "ログアウト", destroy_user_session_path, class:"button", method: :delete %>
           </li>
         <% else %>
           <li>
-            <%= link_to "ホーム", root_path, class:"button"%>
+            <%= link_to "ホーム", root_path, class:"button" %>
           </li>
           <li>
-            <%= link_to "概要", homes_about_path, class:"button"%>
+            <%= link_to "概要", homes_about_path, class:"button" %>
           </li>
           <li>
-            <%= link_to "新規登録", new_user_registration_path, class:"button"%>
+            <%= link_to "新規登録", new_user_registration_path, class:"button" %>
           </li>
           <li>
-            <%= link_to "ログイン", new_user_session_path, class:"button"%>
+            <%= link_to "ログイン", new_user_session_path, class:"button" %>
           </li>
         <% end %>
         </ul>
