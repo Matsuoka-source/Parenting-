@@ -21,22 +21,32 @@
 
 .test1 {
   background-image: image-url("test1.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .test2 {
   background-image: image-url("test2.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .test3 {
   background-image: image-url("test3.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .test4 {
   background-image: image-url("test4.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .test5 {
   background-image: image-url("test5.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 #container{
-  height: 200px;
+  height: 300px;
   display:flex;
 }
 

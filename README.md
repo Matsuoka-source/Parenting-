@@ -20,11 +20,11 @@
 子育てに不安を抱えている人や、新しく生まれてくる赤ちゃんに何が必要かわからない時に利用してもらいたいです。
 
 ## 設計書
-ワイヤーフレーム　
+ワイヤーフレーム
 
 https://app.diagrams.net/?libs=general;mockups#G1PKhXUS27_-OPgYufB0o_EADsyOjEA_4k
 
-ER図　　　　　　　　　　　　
+ER図
 
 https://app.diagrams.net/#G1PqpDA3U12go1ekpRwoQZ9MBBCR4ONRWr
 
@@ -47,5 +47,4 @@ https://docs.google.com/spreadsheets/d/1t0jcW-1KLZkCJFWQaZpOq6tutK5IgPPh7kb6G_e8
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+ぱくたそ:  url (https://www.pakutaso.com/)
