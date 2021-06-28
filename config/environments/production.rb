@@ -91,4 +91,26 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  config.action_mailer.perform_deliveries = true
+  # メール送信を有効
+  config.action_mailer.raise_delivery_errors = true
+  # メールが送信できなかった場合、エラーを発生させる
+  config.action_mailer.delivery_method = :smtp
+  # メール送信する際に通信プロトコルSMTPを利用
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    port: 587,
+    user_name: ENV["GMAIL_ADDRESS"],
+    password: ENV["GMAIL_KEY"],
+    authentication: 'plain',
+    enable_starttls_auto: true
+
+  }
+  config.web_console.whitelisted_ips = '126.92.253.206'
+  # ホワイトスペース
+
+
 end
