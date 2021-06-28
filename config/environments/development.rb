@@ -61,8 +61,11 @@ Rails.application.configure do
 
 
   config.action_mailer.perform_deliveries = true
+  # メール送信を有効
   config.action_mailer.raise_delivery_errors = true
+  # メールが送信できなかった場合、エラーを発生させる
   config.action_mailer.delivery_method = :smtp
+  # メール送信する際に通信プロトコルSMTPを利用
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     domain: 'gmail.com',
