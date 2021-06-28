@@ -48,3 +48,6 @@ https://docs.google.com/spreadsheets/d/1t0jcW-1KLZkCJFWQaZpOq6tutK5IgPPh7kb6G_e8
 
 ## 使用素材
 ぱくたそ:  url (https://www.pakutaso.com/)
+<!--画像を使用-->
+hatchful:  url (https://hatchful.shopify.com/ja/)
+<!--ロゴ制作に使用-->
