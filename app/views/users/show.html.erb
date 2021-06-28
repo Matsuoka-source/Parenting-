@@ -7,7 +7,7 @@
       <h3 class="profile-name"><%= @user.name %></h3>
       <br/>
       <br/>
-      <%= attachment_image_tag @user, :image, :fill, 120, 120 %>
+      <%= attachment_image_tag @user, :image, size: "100x100" %>
       <br/>
       <br/>
       <% if @user.id == current_user.id %>
