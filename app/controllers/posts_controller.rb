@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     @posts = Post.page(params[:page]).reverse_order
     # Post.allでは1ページにすべて出てしまうので、「指定の数だけ。新しいもの順」に変更
     @all_ranks = Post.create_all_ranks
+    # modelで作成した物を使用
   end
 
   def create

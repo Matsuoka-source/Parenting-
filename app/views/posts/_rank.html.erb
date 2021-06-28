@@ -1,5 +1,8 @@
 <h3>いいねランキング</h3>
 
-<% @all_ranks.each do |post| %>
-  <%= post.title %>
+<% @all_ranks.each.with_index(1) do |post,i| %>
+  <%= link_to post_path(post) do %>
+      <h2>第<%= i %>位</h2>
+      <%= post.title %><br/>
+  <% end %>
 <% end %>

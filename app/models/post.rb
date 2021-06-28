@@ -14,6 +14,7 @@ class Post < ApplicationRecord
     #このメソッドで、引数で渡されたユーザidがFavoritesテーブル内に存在するか確認
   end
 
+#ランキング機能作成のため作成 
   def self.create_all_ranks #postクラスからデータを取ってくる処理なので暮らすメソッド
     Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
     # favorite.group(:post_id)      投稿の番号が同じものになるグループを分ける
