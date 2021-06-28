@@ -11,7 +11,7 @@
   <!--投稿日時を表示-->
   <% if @post.user == current_user %>
     <!--投稿してる人とユーザーが同一人物なら削除可能-->
-    <%= link_to "削除", post_path(@post), method: :delete %>
+    <%= link_to "削除", post_path(@post), method: :delete, class:"btn btn-danger btn-lg" %>
   <% end %>
   <div id="favorite-btn_<%= @post.id %>">
     <%= render 'favorites/favorite', locals: { post: @post} %>
@@ -34,7 +34,7 @@
   <% end %>
   </div>
 
-  <%= link_to "編集", edit_post_path(@post) %>
-  <%= link_to '戻る', :back %>
+  <%= link_to "編集", edit_post_path(@post), class:"btn btn-success btn-lg" %>
+  <%= link_to '戻る', :back,class:"btn btn-secondary btn-lg" %>
 
 </div>
