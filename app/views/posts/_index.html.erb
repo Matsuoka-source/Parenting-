@@ -1,20 +1,22 @@
-<div class='col-md-9'>
+<div class="container">
+    <ul class="row">
+      <% posts.each do |post| %>
+      <!--コントローラから来た情報を変数に1つずつ格納-->
 
-    <% posts.each do |post| %>
-    <!--コントローラから来た情報を変数に1つずつ格納-->
-      <li class="card col-md-9 offset-md-1" style="margin-top: 10px; padding-bottom: 10px; padding-top: 10px; margin-bottom: 10px;">
-        <%= link_to post_path(post.id) do %>
-        <!--リンクの作成 変数内のtitleを表示 #{}でタイトルを引っ張ってくる-->
-        <!--<p>コメント: <%#= post.body %></p> ←は変数内のbodyを表示　これはリンク先で見れるようにしておく-->
-          <%= post.title %><br/>
-          <%= post.user.name %><br/>
-          <!--変数内のuser_idに関連付けられているuserモデルのnameカラムを表示-->
-          <td>投稿日時:<br/>
-          <%= post.created_at.strftime('%Y/%m/%d')%></td><br/>
-          <!--投稿日時を表示-->
-        <% end %>
-        <%= link_to"#{post.post_comments.count} コメント", post_path(post.id), class: "btn btn-success btn-lg" %>
-        <!--コメント件数を表示-->
-      </li>
-    <% end %>
+        <li class="card col-md-9 offset-md-1" style="margin-top: 10px; padding-bottom: 10px; padding-top: 10px; margin-bottom: 10px;">
+          <%= link_to post_path(post.id) do %>
+          <!--リンクの作成 変数内のtitleを表示 #{}でタイトルを引っ張ってくる-->
+          <!--<p>コメント: <%#= post.body %></p> ←は変数内のbodyを表示　これはリンク先で見れるようにしておく-->
+            <%= post.title %><br/>
+            <%= post.user.name %><br/>
+            <!--変数内のuser_idに関連付けられているuserモデルのnameカラムを表示-->
+            <td>投稿日時:<br/>
+            <%= post.created_at.strftime('%Y/%m/%d')%></td><br/>
+            <!--投稿日時を表示-->
+          <% end %>
+          <%= link_to"#{post.post_comments.count} コメント", post_path(post.id), class: "btn btn-success btn-lg" %>
+          <!--コメント件数を表示-->
+        </li>
+      <% end %>
+    </ul>
 </div>

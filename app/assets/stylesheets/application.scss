@@ -103,7 +103,9 @@ ul {
 body {
   margin: 0;
   font-size: 20px;
+  margin-bottom: 50px;
 }
+
 ul {
   padding: 0;
   margin: 0;
@@ -207,23 +209,13 @@ nav ul {
 
 
 
-
-footer{
-    width: 100%;
-    background-color: #89c7de;
-    color: #fff;
-    text-align: center;
-
-    bottom: 0; /*下に固定*/
-}
-
-
 // 768px以下になるとheaderのnavの形を変更
 @media screen and (max-width:768px) {
   nav ul {
     display: block;
     margin: 0 115px 0 0;
   }
+
   .title{
     margin: auto;
   }
@@ -251,12 +243,23 @@ footer{
   text-align: center;
 }
 
-footer{
-  background-color: #a9eee6;
-}
 
 .btn btn-danger btn-lg{
   margin-top: 10px;
   margin-bottom: 25px;
 }
 
+.footer{
+ margin-top: 100px;
+}
+
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #a9eee6;
+  color: #fff;
+  text-align: center;
+}

@@ -21,9 +21,11 @@
     <%#= render 'layouts/header2' %>
     <%= render 'layouts/header' %>
     <br/>
+    
     <%= yield %>
+
+   <div class="footer"> 
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
-  <footer class="footer">
-    <%= render 'layouts/footer' %>
-  </footer>
 </html>

@@ -1,8 +1,10 @@
 <!--検索結果表示-->
-<% if @model == 'user' %>
-  <h3>【Usersモデルの検索結果】検索ワード：<%= @content %></h3>
-  <%= render 'users/index', users: @records %>
-<% else @model == 'post' %>
-  <h3>【Postsモデルの検索結果】検索ワード：<%= @content %></h3>
-  <%= render 'posts/index', posts: @records %>
-<% end %>
+<div class="search-body">
+  <% if @model == 'user' %>
+    <h3>【Usersモデルの検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'users/index', users: @records %>
+  <% else @model == 'post' %>
+    <h3>【Postsモデルの検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'posts/index', posts: @records %>
+  <% end %>
+</div>
