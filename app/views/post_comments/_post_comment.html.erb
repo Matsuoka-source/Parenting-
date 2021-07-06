@@ -5,7 +5,7 @@
   <!--コメントを書いた日時-->
   <% if post_comment.user == current_user %>
   <div class="comment-delete">
-    <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true %>
+    <%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, class:"btn btn-danger btn-lg" %>
   </div>
   <% end %>
 <% end %>
