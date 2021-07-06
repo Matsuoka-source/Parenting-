@@ -33,7 +33,11 @@ class PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     post.update(post_params)
-    redirect_to user_path(current_user.id)
+    if post.user == current_user
+      redirect_to user_path(current_user.id)
+    else
+      render "index"
+    end
   end
 
   def show

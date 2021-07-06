@@ -33,8 +33,10 @@
     <%= f.submit "送信する" %>
   <% end %>
   </div>
-
-  <%= link_to "編集", edit_post_path(@post), class:"btn btn-success btn-lg" %>
+  <% if @post.user == current_user %>
+    <%= link_to "編集", edit_post_path(@post), class:"btn btn-success btn-lg" %>
+  <% end %>
+  <!--ほかのユーザでも変更出来ないようにcurrent_userと@post.userとが一致しない場合は表示しない-->
   <%= link_to '戻る', :back,class:"btn btn-secondary btn-lg" %>
 
 </div>

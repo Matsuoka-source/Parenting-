@@ -1,4 +1,5 @@
 <h1>投稿一覧</h1>
+
     <div class='col-md-3'>
       <!--バリデーションで発生したエラーを確認し、発生しているかどうか判定-->
       <% if @post.errors.any? %>
@@ -20,7 +21,5 @@
     </div>
 
     <%= render 'index', posts: @posts %>
-  </div>
-</div>
 <%= paginate @posts %>
 <!--ページング機能-->
