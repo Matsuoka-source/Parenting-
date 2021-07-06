@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     # end
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@book), notice: "You have updated book successfully."
+      redirect_to post_path(@post), notice: "You have updated book successfully."
     else
       render "edit"
     end
