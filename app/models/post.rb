@@ -15,7 +15,7 @@ class Post < ApplicationRecord
   end
 
 #ランキング機能作成のため作成 
-  def self.create_all_ranks #postクラスからデータを取ってくる処理なので暮らすメソッド
+  def self.create_all_ranks #postクラスからデータを取ってくる処理なのでクラスメソッド
     Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
     # favorite.group(:post_id)      投稿の番号が同じものになるグループを分ける
     # order('count(post_id) desc')  番号の多い順に並べ替える
